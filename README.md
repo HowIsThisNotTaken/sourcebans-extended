@@ -21,6 +21,18 @@ As of now, this module is still compatible with SourceBans++ 1.6.3
 
 Use this [link](https://drive.google.com/open?id=1NrgjutfWg1Ov8pvI_FMgfE98lDhN3rIMF7OPEbN5foU) for documentation. This google doc and the official documentation do have similar functions listed, but mine has extra functions which may be useful outside of SourceBans.
 
+TO access the in-game menu, do sm_adminmenu in console. Check sv_sourceban_gui.lua to make sure the meta function "Player:IsModerator()" has all your staff group for them to be able to access the in-game group.
+
+There isn't any adding group function, sorry.
+
+There isn't any noclip function, just use the default noclip key.
+
+In essence, check all files if they are using the correct meta function.
+
+Yo do not need to set permissions permissions on the web panel for groups.
+
+There are chat commands: /bring, /goto, /freeze, /unfreeze, /god, /ungod, /kill, /respawn, /strip. You can use names, steam name, steamid, or steamid64.
+
 ### Shoutouts
 
 Lexi for allowing SourceBans to be a thing on gmod: https://forum.facepunch.com/gmodaddon/jiep/SourceBans-in-Lua/1/

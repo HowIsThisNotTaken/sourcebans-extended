@@ -33,6 +33,8 @@ Yo do not need to set permissions permissions on the web panel for groups.
 
 There are chat commands: /bring, /goto, /freeze, /unfreeze, /god, /ungod, /kill, /respawn, /strip. You can use names, steam name, steamid, or steamid64.
 
+You can also use the c menu to ban, kick, freeze, or view ban history!
+
 ### Shoutouts
 
 Lexi for allowing SourceBans to be a thing on gmod: https://forum.facepunch.com/gmodaddon/jiep/SourceBans-in-Lua/1/

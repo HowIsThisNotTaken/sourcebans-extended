@@ -18,6 +18,8 @@ You will also need a database to store your bans, duh
 
 As of now, this module is still compatible with SourceBans++ 1.6.3
 
+Use this [link](https://drive.google.com/open?id=1NrgjutfWg1Ov8pvI_FMgfE98lDhN3rIMF7OPEbN5foU) for documentation. This google doc and the official documentation do have similar functions listed, but mine has extra functions which may be useful outside of SourceBans.
+
 ### Shoutouts
 
 Lexi for allowing SourceBans to be a thing on gmod: https://forum.facepunch.com/gmodaddon/jiep/SourceBans-in-Lua/1/

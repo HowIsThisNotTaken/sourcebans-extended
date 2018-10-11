@@ -11,6 +11,8 @@ This admin mod isn't your typical admin mod where everything is done on an ingam
 
 ### Information
 
+I won't provide much support for this, sorry.
+
 This module has family share blocker, which blocks the family shared account if the owner of that account is banned
 
 You will need mysqloo, use the link in the shoutout area

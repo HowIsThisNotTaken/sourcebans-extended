@@ -6,6 +6,7 @@ This admin mod isn't your typical admin mod where everything is done on an ingam
 * sv_sourcebans_database.lua (sourcebans/sv_sourcebans_database.lua)
 * SourcebanCFG.lua (sourcebans/autorun/SourcebanCFG.lua)
 * sh_sourcebans_shared.lua (sourcebans/sh_sourcebans_shared.lua)
+* sv_familyshareblocker.lua (sourcebans/lua/modules/actions/sv_familyshareblocker.lua) Use [this](https://steamcommunity.com/dev/apikey)
 * sv_sourceban_gui.lua (sourcebans/lua/modules/commands/sv_sourceban_gui.lua) if you are to change the meta function names
 
 ### Information

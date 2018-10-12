@@ -1,6 +1,6 @@
 MsgC(Color(150, 0, 230), "Loading client side functionality of SourceBans\n")
 function sourceban_gui_Kick(Player)
-	SScoreRequest("Kick Player",
+	Derma_StringRequest("Kick Player",
 	"Reason to kick " .. Player:Nick(),
 	"",
 	function(reason)
@@ -12,11 +12,11 @@ function sourceban_gui_Kick(Player)
 end
 
 function sourceban_gui_Ban(Player)
-	SScoreRequest("Ban reason for " .. Player:Nick(),
+	Derma_StringRequest("Ban reason for " .. Player:Nick(),
 		"Ban reason for " .. Player:Nick(),
 		"",
 		function(reason)
-	SScoreRequest("Ban length for ".. Player:Nick(),
+	Derma_StringRequest("Ban length for ".. Player:Nick(),
 		"Ban length for ".. Player:Nick(),
 		"",
 		function(time)
@@ -415,22 +415,22 @@ end
 local function addban()
 	local menu = DermaMenu()
 	menu:AddOption("Add Ban", function()
-		SScoreRequest("SteamID to ban", 
+		Derma_StringRequest("SteamID to ban", 
 		"Enter the SteamID you wish to ban", 
 		"",
 		function(steamid)
 
-		SScoreRequest("Ban Length", 
+		Derma_StringRequest("Ban Length", 
 		"Length to ban " .. steamid, 
 		"",
 		function(time)
 
-		SScoreRequest("Ban Reason",
+		Derma_StringRequest("Ban Reason",
 		"Reason to ban " .. steamid,
 		"",
 		function(reason)
 
-		SScoreRequest("Name of the SteamID", 
+		Derma_StringRequest("Name of the SteamID", 
 		"What is the name of " .. steamid, 
 		"", 
 		function(name)
@@ -447,12 +447,12 @@ local function addban()
 		end)
 	end)
 	menu:AddOption("Unban", function()
-		SScoreRequest("SteamID to Unban",
+		Derma_StringRequest("SteamID to Unban",
 		"Enter the SteamID you want to unban",
 		"",
 		function(steamid)
 
-		SScoreRequest("Reason to Unban",
+		Derma_StringRequest("Reason to Unban",
 		"Why do you want to unban " .. steamid,
 		"",
 		function(reason)

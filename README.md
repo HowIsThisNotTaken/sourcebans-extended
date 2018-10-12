@@ -27,7 +27,7 @@ TO access the in-game menu, do sm_adminmenu in console. Check sv_sourceban_gui.l
 
 There isn't any adding group function, sorry.
 
-There isn't any noclip function, just use the default noclip key.
+There isn't any noclip command, just use the default noclip key.
 
 In essence, check all files if they are using the correct meta function.
 

@@ -37,6 +37,10 @@ There are chat commands: /bring, /goto, /freeze, /unfreeze, /god, /ungod, /kill,
 
 You can also use the c menu to ban, kick, freeze, or view ban history!
 
+Screen that shows up when a player is banned is this (kick screen is the same except w/o ban time):
+
+![BanScreen](https://i.imgur.com/iwsg8l1.png)
+
 ### Shoutouts
 
 Lexi for allowing SourceBans to be a thing on gmod: https://forum.facepunch.com/gmodaddon/jiep/SourceBans-in-Lua/1/

@@ -1,5 +1,5 @@
-local function url(Player) --ONLY CHANGE THE "YOUR WEBSITE" PART; this searches bans by steamid
-	"www.yourwebsite.com/bans/index.php?p=banlist&advSearch=" .. Player:SteamID() .. "&advType=steamid"
+local function url(Player) --Change the localhost part to your ban page; this searches bans by steamid
+	gui.OpenURL("http://localhost/bans/index.php?p=banlist&advSearch=" .. Player:SteamID() .. "&advType=steamid")
 end
 
 properties.Add("sb_kick",

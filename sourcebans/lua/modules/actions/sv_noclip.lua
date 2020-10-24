@@ -1,6 +1,6 @@
 hook.Add("PlayerNoClip", "SourcebansNoclip", function(ply, desiredNoClipState )
 		if not ply:IsModerator() then 
-			sourcebans_notify(Player, "You must be a staff member to do this!", 1, 4)
+			sourcebans_notify(ply, "You must be a staff member to do this!", 1, 4)
 		return false end
 
 		if !ply:Alive() then

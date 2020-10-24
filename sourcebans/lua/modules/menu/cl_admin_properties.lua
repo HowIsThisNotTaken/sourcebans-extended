@@ -11,7 +11,7 @@ properties.Add("sb_kick",
 
 	Filter		=	function(self, ent, ply)
 		if not IsValid(ent) or not ent:IsPlayer() then return end
-			return ply:IsModerator()
+			return ply:IsAdmin()
 		end,
 
 	Action		=	function(self, ent)
@@ -29,7 +29,7 @@ properties.Add("sb_ban",
 
 	Filter		=	function(self, ent, ply)
 		if not IsValid(ent) or not ent:IsPlayer() then return end
-		return ply:IsModerator()
+		return ply:IsAdmin()
 	end,
 
 	Action		=	function(self, ent)
@@ -46,7 +46,7 @@ properties.Add("sb_BanHistory",
 
 	Filter		=	function(self, ent, ply)
 		if not IsValid(ent) or not ent:IsPlayer() then return end
-		return ply:IsModerator()
+		return ply:IsAdmin()
 	end,
 
 	Action		=	function(self, ent)
@@ -63,7 +63,7 @@ properties.Add("sb_Freeze",
 
 	Filter		=	function(self, ent, ply)
 		if not IsValid(ent) or not ent:IsPlayer() then return end
-		return ply:IsModerator()
+		return ply:IsAdmin()
 	end,
 
 	Action		=	function(self, ent)

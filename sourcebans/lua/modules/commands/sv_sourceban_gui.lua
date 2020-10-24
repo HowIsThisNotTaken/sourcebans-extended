@@ -1,7 +1,7 @@
 MsgC(Color(235, 245, 0), "Loading Server side functionality of SourceBans\n")
 
     local function denyifnotstaff(Player)
-        if not Player:IsModerator() then
+        if not Player:IsAdmin() then
             sourcebans_notify(Player, "You must be a staff member to do this!", 1, 4)
         return end
     end

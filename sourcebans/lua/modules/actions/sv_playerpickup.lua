@@ -1,5 +1,5 @@
 local function AdminPhysgunPickup( ply, ent )
-	if ply:IsModerator() then
+	if ply:IsAdmin() then
 		if not IsValid(ent) or not ent:IsPlayer() then return end
 			ent:SetMoveType(MOVETYPE_NONE)
 			ent:Freeze(true)

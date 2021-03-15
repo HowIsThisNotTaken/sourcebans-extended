@@ -83,7 +83,7 @@ function sourcebans_gui_ChangeTeam(Player)
 end
 
 function sourceban_gui_BanHistory(Player)
-	gui.OpenURL("http://simplyepicgaming.com/bans/index.php?p=banlist&advSearch=" .. Player:SteamID() .. "&advType=steamid")
+	gui.OpenURL("http://yourwebsite.net/bans/index.php?p=banlist&advSearch=" .. Player:SteamID() .. "&advType=steamid")
 end
 
 function sourceban_gui_Freeze(Player)

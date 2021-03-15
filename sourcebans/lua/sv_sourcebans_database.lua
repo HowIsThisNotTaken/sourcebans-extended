@@ -170,7 +170,7 @@ local checkBan, banCheckerOnData, banCheckerOnFailure;
 local joinAttemptLoggerOnFailure;
 local adminGroupLoaderOnSuccess, adminGroupLoaderOnFailure;
 local loadAdmins, adminLoaderOnSuccess, adminLoaderOnData, adminLoaderOnFailure;
-local doBan, banOnSuccess, banOnFailure;
+local doBan, doKick, banOnSuccess, banOnFailure;
 local startDatabase, databaseOnConnected, databaseOnFailure;
 local activeBansOnSuccess, activeBansOnFailure;
 local doUnban, unbanOnFailure;
@@ -264,6 +264,36 @@ function doBan(steamID, ip, name, length, reason, admin, callback)
         else
             reason = "You were banned for: " .. reason;
         end
+
+    else
+        reason = nil;
+    end
+
+    if (steamID ~= "") then
+        game.KickID(steamID, reason)
+    end
+end
+
+function doKick(steamID, ip, name, reason, admin, callback)
+    local time = os.time();
+    local adminID, adminIP = getAdminDetails(admin);
+    --local length = time.SecondsToUnit(length, DAY);
+    name = name or "";
+    local query = database:query(queries["Ban Player"]:format(config.dbprefix, ip, steamID, database:escape(name), time, time + 1, 1, database:escape("[KICK]" .. reason), adminID, adminIP, config.serverid));
+    query.onSuccess = banOnSuccess;
+    query.onFailure = banOnFailure;
+    query.callback = callback;
+    query.name = name;
+    query:start();
+    if (config.showbanreason) then
+        if (reason and string.Trim(reason) == "") then
+            reason = nil;
+        end
+
+        if (reason == nil) then
+            reason = "No reason specified.";
+        end
+        reason = "You were kicked for: " .. reason .. "\nAdmin: " .. admin:Nick();
 
     else
         reason = nil;
@@ -525,7 +555,21 @@ function BanPlayer(ply, time, reason, admin, callback)
     end
     doBan(ply:SteamID(), getIP(ply), ply:Name(), time, reason, admin, callback);
 end
-
+---
+-- Kicks a player by object
+-- @param ply The player to kick
+-- @param reason Why the player is being banned
+-- @param admin (Optional) The admin who did the ban. Leave nil for CONSOLE.
+-- @param callback (Optional) A function to call with the results of the ban. Passed true if it worked, false and a message if it didn't.
+function KickPlayer(ply, reason, admin, callback)
+    callback = callback or blankCallback;
+    if (not checkConnection()) then
+        return callback(false, "No Database Connection");
+    elseif (not ply:IsValid()) then
+        error("Expected player, got NULL!", 2);
+    end
+    doKick(ply:SteamID(), getIP(ply), ply:Name(), reason, admin, callback);
+end
 ---
 -- Bans a player by steamID
 -- @param steamID The SteamID to ban

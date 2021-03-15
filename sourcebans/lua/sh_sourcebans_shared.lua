@@ -27,3 +27,5 @@ function sm_FindPlayer(info)
     end
     return nil
 end
+
+sourcebans_kickHistory = false

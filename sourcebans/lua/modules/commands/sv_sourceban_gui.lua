@@ -92,7 +92,11 @@ MsgC(Color(235, 245, 0), "Loading Server side functionality of SourceBans\n")
                 sourcebans_notify(Player, "Not a valid player!", 0, 4)
             return end
 
-            target:Kick("You were kicked for: " .. reason .. " \nAdmin: " .. Player:Nick())
+            if sourcebans_kickHistory == true then
+                sourcebans.KickPlayer(target, reason, Player, callback)
+            else
+                target:Kick("You were kicked for: " .. reason .. " \nAdmin: " .. Player:Nick())
+            end
             PrintMessage(3, target:Nick() .. " was kicked for: " .. reason)
             sourcebans_notify(Player, "Kicked: " .. target:Nick(), 0, 4)
         end)

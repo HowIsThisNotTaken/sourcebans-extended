@@ -205,17 +205,24 @@ local function populatePlayerDetailsContainer(Player)
 	playerDetailsContainer.profileListItems:Clear()
 	playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("RP Name:", Player:Nick(), width, height))
 	playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Rank:", Player:GetUserGroup() or "", width, height))
-	playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Money:", Player:getDarkRPVar("money") or 0, width, height))
-	playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Job:", Player:getDarkRPVar("job") or "", width, height))
-	playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Currently Arrested:", Player:getDarkRPVar("Arrested") or "No", width, height))
+	playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Rank:", Player:GetUserGroup() or "", width, height))
+	if gmod.GetGamemode() == "darkrp" then
+		playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Money:", Player:getDarkRPVar("money") or 0, width, height))
+		playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Job:", Player:getDarkRPVar("job") or "", width, height))
+		playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Currently Arrested:", Player:getDarkRPVar("Arrested") or "No", width, height))
+	end
 
 	local wantedText = "No"
-	if Player:getDarkRPVar("wanted") then
-		wantedText = "Yes"
+	if gmod.GetGamemode() == "darkrp" then	
+		if Player:getDarkRPVar("wanted") then
+			wantedText = "Yes"
+		end
 	end
 
 	playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Currently Wanted:", wantedText, width, height))
-	playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Wanted Reason:", Player:getDarkRPVar("wantedReason") or "", width, height))
+	if gmod.GetGamemode() == "darkrp" then
+		playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Wanted Reason:", Player:getDarkRPVar("wantedReason") or "", width, height))
+	end
 	playerDetailsContainer.profileListItems:SizeToContents();
 
 	local heightCommands = 25;
@@ -235,11 +242,13 @@ local function populatePlayerDetailsContainer(Player)
 			sourceban_gui_BanHistory(Player)
 		end)
 	)
-	playerDetailsContainer.commandListItems:Add(createCommandListItem("Team Ban", width, heightCommands, 
-		function()
-			sourcebans_gui_teamban(Player)
-		end)
-	)
+	if gmod.GetGamemode() == "darkrp" then
+		playerDetailsContainer.commandListItems:Add(createCommandListItem("Team Ban", width, heightCommands, 
+			function()
+				sourcebans_gui_teamban(Player)
+			end)
+		)
+	end
 	playerDetailsContainer.commandListItems:Add(createCommandListItem("Respawn", width, heightCommands, 
 		function()
 			sourceban_gui_Respawn(Player)
@@ -275,11 +284,13 @@ local function populatePlayerDetailsContainer(Player)
 			sourceban_gui_godmode(Player)
 		end)
 	)
-	playerDetailsContainer.commandListItems:Add(createCommandListItem("Change Team", width, heightCommands, 
-		function()
-			sourcebans_gui_ChangeTeam(Player)
-		end)
-	)
+	if gmod.GetGamemode() == "darkrp" then
+		playerDetailsContainer.commandListItems:Add(createCommandListItem("Change Team", width, heightCommands, 
+			function()
+				sourcebans_gui_ChangeTeam(Player)
+			end)
+		)
+	end
 	playerDetailsContainer.commandListItems:Add(createCommandListItem("Strip Weapons", width, heightCommands, 
 		function()
 			sourceban_gui_StripWeapon(Player)

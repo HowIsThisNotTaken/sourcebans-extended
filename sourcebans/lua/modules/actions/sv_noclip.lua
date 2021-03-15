@@ -1,8 +1,5 @@
 hook.Add("PlayerNoClip", "SourcebansNoclip", function(ply, desiredNoClipState )
-		if not ply:IsAdmin() then 
-			sourcebans_notify(ply, "You must be a staff member to do this!", 1, 4)
-		return false end
-
+	if ply:IsAdmin() then 	
 		if !ply:Alive() then
 			sourcebans_notify(ply, "You must be alive to noclip!", 1, 4)
 		return end
@@ -20,7 +17,7 @@ hook.Add("PlayerNoClip", "SourcebansNoclip", function(ply, desiredNoClipState )
 			ply:DrawWorldModel(true)
 			sourcebans_notify(ply, "Disabled Godmode and Cloak!", 0, 4)
 		end
-	return true
+	return true end
 end)
 
 hook.Add("PlayerSpawn", "RemoveNoclipEffects", function(Player)

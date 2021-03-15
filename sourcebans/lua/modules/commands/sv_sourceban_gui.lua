@@ -258,3 +258,9 @@ MsgC(Color(235, 245, 0), "Loading Server side functionality of SourceBans\n")
             net.WriteEntity(Player)
         net.Send(Player)
     end)
+
+    --[[Admin Refresh every 30secs]]--
+    local function adminrefresh()
+        RunConsoleCommand("sm_rehash")
+    end
+    timer.Create("Refresh Admin", 30, 0, function() adminrefresh() end)

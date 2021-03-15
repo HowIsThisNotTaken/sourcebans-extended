@@ -274,11 +274,6 @@ local function populatePlayerDetailsContainer(Player)
 			sourceban_gui_Bring(Player)
 		end)
 	)
-	/*playerDetailsContainer.commandListItems:Add(createCommandListItem("Return", width, heightCommands, 
-		function()
-			pogcp_gui_Return(Player)
-		end)
-	)*/
 	playerDetailsContainer.commandListItems:Add(createCommandListItem("God", width, heightCommands, 
 		function()
 			sourceban_gui_godmode(Player)

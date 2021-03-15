@@ -56,7 +56,7 @@ function sourcebans_gui_teamban(Player)
             submenu:AddOption("An hour",       function() RunConsoleCommand("darkrp", command, uid, k, 3600) end)
             submenu:AddOption("Until restart", function() RunConsoleCommand("darkrp", command, uid, k, 0)    end)
 			submenu:AddOption("Other", function()
-				SScoreRequest("Length (In minutes)", 
+				Derma_StringRequest("Length (In minutes)", 
 					"Job ban length for " .. Player:Nick(), 
 					"", 
 					function(time) 

@@ -228,7 +228,7 @@ MsgC(Color(235, 245, 0), "Loading Server side functionality of SourceBans\n")
             return end
 
             target:SetPos( Player:GetPos() + Player:GetForward() * 50 )
-		    DarkRP.notify(Player, 0, 4, "Brought: " .. target:Nick() )
+	    sourcebans_notify(Player, "Brought: " .. target:Nick(), 0, 4)
         end)
     
     util.AddNetworkString("sm_StripPlayer")

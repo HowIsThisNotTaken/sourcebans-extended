@@ -33,7 +33,7 @@ In essence, check all files if they are using the correct meta function.
 
 Yo do not need to set permissions permissions on the web panel for groups.
 
-There are chat commands: /bring, /goto, /freeze, /unfreeze, /god, /ungod, /kill, /respawn, /strip. You can use names, steam name, steamid, or steamid64.
+There are chat commands: /bring, /goto, /freeze, /unfreeze, /god, /ungod, /kill, /respawn, /strip. You can use names, steamid, or steamid64.
 
 You can also use the c menu to ban, kick, freeze, or view ban history!
 

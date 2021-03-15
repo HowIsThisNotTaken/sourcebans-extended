@@ -1,7 +1,3 @@
-local function url(Player) --Change the localhost part to your ban page; this searches bans by steamid
-	gui.OpenURL("http://localhost/bans/index.php?p=banlist&advSearch=" .. Player:SteamID() .. "&advType=steamid")
-end
-
 properties.Add("sb_kick",
 {
 
@@ -51,7 +47,7 @@ properties.Add("sb_BanHistory",
 
 	Action		=	function(self, ent)
 		if not IsValid(ent) or not ent:IsPlayer() then return end
-		url(ent)
+		sourceban_gui_BanHistory(ent)
 	end
 })
 

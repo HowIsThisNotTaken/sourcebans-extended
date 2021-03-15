@@ -1,3 +1,6 @@
+// Keeps track of ban history. Set true to record kicks, false to kick w/o record. Recommendation: false to save database space.
+sourcebans_kickHistory = false
+
 //Taken from DarkRP
 function sm_FindPlayer(info)
 	    if not info or info == "" then return nil end
@@ -27,5 +30,3 @@ function sm_FindPlayer(info)
     end
     return nil
 end
-
-sourcebans_kickHistory = false

@@ -1,7 +1,7 @@
 MsgC(Color(235, 245, 0), "Loading Server side functionality of SourceBans\n")
 util.AddNetworkString("sm_BanPlayer")
     net.Receive("sm_BanPlayer", function ( len, Player )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) and sourcebans.authorised(Player, sb_FLAG_BAN) then
             local target = net.ReadEntity()
             local time = net.ReadUInt(32)
             local reason = net.ReadString()
@@ -26,7 +26,7 @@ util.AddNetworkString("sm_BanPlayer")
 
 util.AddNetworkString("sm_AddBan")
     net.Receive("sm_AddBan", function( len, Player )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) and sourcebans.authorised(Player, sb_FLAG_BAN) then
             local steamid = net.ReadString()
             local time = net.ReadUInt(32)
             local reason = net.ReadString()
@@ -53,7 +53,7 @@ util.AddNetworkString("sm_AddBan")
 
 util.AddNetworkString("sm_Unban")
     net.Receive("sm_Unban", function( len, Player )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) and sourcebans.authorised(Player, sb_FLAG_UNBAN) then
             local steamid = net.ReadString()
             local reason = net.ReadString()
 
@@ -72,7 +72,7 @@ util.AddNetworkString("sm_Unban")
 
 util.AddNetworkString("sm_KickPlayer")
     net.Receive("sm_KickPlayer", function ( len, Player )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) and sourcebans.authorised(Player, sb_FLAG_KICK) then
             local target = net.ReadEntity()
             local reason = net.ReadString()
 
@@ -97,7 +97,7 @@ util.AddNetworkString("sm_KickPlayer")
 
 util.AddNetworkString("sm_FreezePlayer")
     net.Receive("sm_FreezePlayer", function ( len, Player )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
             local target = net.ReadEntity()
 
             if !target:IsPlayer() and !IsValid(target) then
@@ -118,7 +118,7 @@ util.AddNetworkString("sm_FreezePlayer")
 
 util.AddNetworkString("sm_ChangeTeam")
     net.Receive("sm_ChangeTeam", function( len, Player )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
 
             local target = net.ReadEntity()
             local teamid = net.ReadUInt(32)
@@ -138,7 +138,7 @@ util.AddNetworkString("sm_ChangeTeam")
 
 util.AddNetworkString("sm_RespawnPlayer")
     net.Receive("sm_RespawnPlayer", function ( len, Player )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
             local target = net.ReadEntity()
 
             if !target:IsPlayer() and !IsValid(target) then
@@ -156,7 +156,7 @@ util.AddNetworkString("sm_RespawnPlayer")
 
 util.AddNetworkString("sm_KillPlayer")
     net.Receive("sm_KillPlayer", function ( len, Player )
-        if Player:IsSuperAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
             local target = net.ReadEntity()
 
             if !target:IsPlayer() and !IsValid(target) then
@@ -174,7 +174,7 @@ util.AddNetworkString("sm_KillPlayer")
 
 util.AddNetworkString("sm_Godmode")
     net.Receive("sm_Godmode", function ( len, Player )
-        if Player:IsSuperAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
             local target = net.ReadEntity()
 
             if !target:IsPlayer() and !IsValid(target) then
@@ -193,7 +193,7 @@ util.AddNetworkString("sm_Godmode")
 
 util.AddNetworkString("sm_GotoPlayer")
     net.Receive("sm_GotoPlayer", function ( len, Player )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
             local target = net.ReadEntity()
 
             if Player:InVehicle() then
@@ -212,7 +212,7 @@ util.AddNetworkString("sm_GotoPlayer")
     
 util.AddNetworkString("sm_BringPlayer")
     net.Receive("sm_BringPlayer", function ( len, Player )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
             local target = net.ReadEntity()
 
             if target:InVehicle() then
@@ -234,7 +234,7 @@ util.AddNetworkString("sm_BringPlayer")
     
 util.AddNetworkString("sm_StripPlayer")
     net.Receive("sm_StripPlayer", function( len, Player )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
             local target = net.ReadEntity()
 
             if !target:IsPlayer() then 
@@ -245,28 +245,14 @@ util.AddNetworkString("sm_StripPlayer")
             sourcebans_notify(Player, "Stripped weapons from: " .. target:Nick(), 0, 4)
         end
     end)
-util.AddNetworkString("sm_GetIP")
-    net.Receive("sm_GetIP", function(len, Player)
-        if Player:IsSuperAdmin() then
-            local target = net.ReadEntity()
-
-            if !target:IsPlayer() then
-                sourcebans_notify(Player, "Not a valid player!", 1, 4)
-            return end
-
-            net.Start("sm_GetIP")
-                net.WriteString(sourcebans.getIP(target))
-            net.Send(Player)
-        end
-    end)
 
     --[[ MENU NETWORKING BELOW]]--
 util.AddNetworkString("sm_AdminMenu")
     concommand.Add("sm_adminmenu", function( Player, cmd )
-        if Player:IsAdmin() then
+        if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
             net.Start("sm_AdminMenu")
                 net.WriteEntity(Player)
             net.Send(Player)
         end
     end)
-timer.Create("Refresh Admin", 30, 0, function() RunConsoleCommand("sm_rehash") end)
+timer.Create("SourceBans.lua - Refresh Admin", 10, 0, function() RunConsoleCommand("sm_rehash") end)

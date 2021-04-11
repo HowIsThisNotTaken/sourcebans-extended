@@ -2,6 +2,7 @@
 sourcebans_kickHistory = false
 
 //SourceBans Flags. B is given to most functions as those are basic admin privileges. You can use kick and ban for something else or add as an extra check.
+//Z flag gives all perms. No need to worry about configuring that :D
 sourcebans_FLAG_RESERVED = "a"
 sourcebans_FLAG_GENERIC = "b"
 sourcebans_FLAG_KICK = "c"

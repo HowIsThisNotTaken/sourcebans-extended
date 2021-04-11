@@ -1,5 +1,5 @@
 hook.Add("PlayerNoClip", "SourcebansNoclip", function(ply, desiredNoClipState )
-	if ply:IsAdmin() then 	
+	if sourcebans.authorised(ply, sb_FLAG_GENERIC) then 	
 		if !ply:Alive() then
 			sourcebans_notify(ply, "You must be alive to noclip!", 1, 4)
 		return end

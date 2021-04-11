@@ -110,10 +110,6 @@ function sourceban_gui_godmode(Player)
 	net.SendToServer()
 end
 
-function sourceban_gui_Spectate(Player)
-	LocalPlayer():ConCommand("fspectate " .. Player:Nick())
-end
-
 function sourceban_gui_Goto(Player)
 	net.Start("sm_GotoPlayer")
 		net.WriteEntity(Player)
@@ -220,9 +216,7 @@ local function populatePlayerDetailsContainer(Player)
 	end
 
 	playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Currently Wanted:", wantedText, width, height))
-	if gmod.GetGamemode() == "darkrp" then
-		playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Wanted Reason:", Player:getDarkRPVar("wantedReason") or "", width, height))
-	end
+	playerDetailsContainer.profileListItems:Add(createPlayerInfoItem("Wanted Reason:", Player:getDarkRPVar("wantedReason") or "", width, height))
 	playerDetailsContainer.profileListItems:SizeToContents();
 
 	local heightCommands = 25;
@@ -242,13 +236,11 @@ local function populatePlayerDetailsContainer(Player)
 			sourceban_gui_BanHistory(Player)
 		end)
 	)
-	if gmod.GetGamemode() == "darkrp" then
 		playerDetailsContainer.commandListItems:Add(createCommandListItem("Team Ban", width, heightCommands, 
 			function()
 				sourcebans_gui_teamban(Player)
 			end)
 		)
-	end
 	playerDetailsContainer.commandListItems:Add(createCommandListItem("Respawn", width, heightCommands, 
 		function()
 			sourceban_gui_Respawn(Player)

@@ -53,7 +53,7 @@ properties.Add("sb_BanHistory",
 
 properties.Add("sb_Freeze",
 {
-	MenuLabel	=	"Freeze",
+	MenuLabel	=	"Toggle Freeze",
 	Order		=	40,
 	MenuIcon	=	"icon16/error.png",
 

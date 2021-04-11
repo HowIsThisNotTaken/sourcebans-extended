@@ -39,7 +39,7 @@ end
 
 --[[Chat commands :D]]--
 RegisterChatCommand("/respawn", function(ply, args)
-	if( ply:IsAdmin() ) then
+	if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
 		local target = sm_FindPlayer(args[1])
 
 		if target == nil then
@@ -56,7 +56,7 @@ RegisterChatCommand("/respawn", function(ply, args)
 end)
 
 RegisterChatCommand("/goto", function(ply, args)
-	if( ply:IsAdmin() ) then
+	if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
 		local target = sm_FindPlayer(args[1])
 
 		if target == nil then
@@ -73,7 +73,7 @@ RegisterChatCommand("/goto", function(ply, args)
 end)
 
 RegisterChatCommand("/bring", function(ply, args)
-	if( ply:IsAdmin() ) then
+	if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
 		local target = sm_FindPlayer(args[1])
 
 		if target == nil then
@@ -94,7 +94,7 @@ RegisterChatCommand("/bring", function(ply, args)
 end)
 
 RegisterChatCommand("/freeze", function(ply, args)
-	if ( ply:IsAdmin() ) then
+	if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
 		local target = sm_FindPlayer(args[1])
 
 		if target == nil then
@@ -111,7 +111,7 @@ RegisterChatCommand("/freeze", function(ply, args)
 end)
 
 RegisterChatCommand("/unfreeze", function(ply, args)
-	if ( ply:IsAdmin() ) then
+	if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
 		local target = sm_FindPlayer(args[1])
 
 		if target == nil then
@@ -124,7 +124,7 @@ RegisterChatCommand("/unfreeze", function(ply, args)
 end)
 
 RegisterChatCommand("/kill", function(ply, args)
-	if ( ply:IsAdmin() ) then
+	if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
 		local target = sm_FindPlayer(args[1])
 
 		if target == nil then
@@ -141,7 +141,7 @@ RegisterChatCommand("/kill", function(ply, args)
 end)
 
 RegisterChatCommand("/god", function(ply, args)
-	if ( ply:IsAdmin() ) then
+	if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
 		local target = sm_FindPlayer(args[1])
 
 		if target == nil then
@@ -155,7 +155,7 @@ RegisterChatCommand("/god", function(ply, args)
 end)
 
 RegisterChatCommand("/ungod", function(ply, args)
-	if ( ply:IsAdmin() ) then
+	if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
 		local target = sm_FindPlayer(args[1])
 
 		if target == nil then
@@ -169,7 +169,7 @@ RegisterChatCommand("/ungod", function(ply, args)
 end)
 
 RegisterChatCommand("/strip", function(ply, args)
-	if ( ply:IsAdmin() ) then
+	if sourcebans.authorised(Player, sb_FLAG_GENERIC) then
 		local target = sm_FindPlayer(args[1])
 
 		if target == nil then

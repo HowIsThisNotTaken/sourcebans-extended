@@ -39,7 +39,7 @@ You can also use the c menu to ban, kick, freeze, or view ban history!
 
 Screen that shows up when a player is banned is this (kick screen is the same except w/o ban time):
 
-![BanScreen](https://i.imgur.com/mIfKv7T.png)
+![BanScreen](https://i.imgur.com/6mzMmK2.png)
 
 ### Shoutouts
 

@@ -65,12 +65,12 @@ module("sourcebans");
 --]]
 --[[ Config ]]--
 local config = {
-    hostname = "taken.hosted.nfoservers.com";
-    username = "kjhernandez";
-    password = "cuEmpG7CPf";
-    database = "kjhernandez_sourcebans";
-    dbprefix = "sb";
-    website  = "ur mom gae";
+    hostname = "";
+    username = "";
+    password = "";
+    database = "";
+    dbprefix = "";
+    website  = "";
     portnumb = 3306;
     serverid = 1;
     dogroups = true;
